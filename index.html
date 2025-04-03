@@ -6,19 +6,39 @@
 		<title>Online Grocery Store</title>
 	</head>
     <body>
+        <!--logo-->
+        <div id="top" class="nav col-12 col-t-12">
+            <img src="./images/logo_mono.png" width="70">
+        </div>
         <!--nav bar-->
         <div id="top" class="nav col-12 col-t-12">
-            
 			<a class="active" href="index.html">Home</a>
-			<a href="past.html">About</a>
-			<a href="future.html">Delivery details</a>
+			<a href="about.html">About</a>
+			<a href="delivery.html">Delivery details</a>
 			<a href="cart.html">Shopping cart</a>
 		</div>
-        <form>
-            <input type="text" placeholder="Search products">
-            <button type="submit">Submit</button>
-        </form>
 
+        <!-- search bar -->
+        <div>
+            <form>
+                <input type="text" placeholder="Search products">
+                <button type="submit">Submit</button>
+            </form>    
+        </div>
+
+        <!--Catalogue sidenav-->
+        <div class="sidenav">
+            <a class="active" href="index.html">Frozen Food</a>
+			<a href="about.html">Pet Food</a>
+            <button class="dropdown-btn"> ur mum</button>
+            <div class "dropdown-container">
+                <a href="delivery.html">Delivery details</a>
+                <a href="cart.html">Shopping cart</a>
+            </div>
+			<!-- <a href="delivery.html">Delivery details</a>
+			<a href="cart.html">Shopping cart</a> -->
+        </div>
+        
         <h1>Catalogue</h1>
         <div class="product-categories">
             <h2>Roomates</h2>
