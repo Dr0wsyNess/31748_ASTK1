@@ -30,14 +30,24 @@
 ;
 }
 
-/* attach separate colour to the active element */
+/* attach separate color to the active element */
 .nav a.active {
     background-color: #889CB6; 
     color: #F1F3F3;
 }
 
+/*sidenav menu*/
+.sidenav {
+    height: 100%;
+    width:160px;
+    position: fixed;
+    left: 0;
+    background-color: #111; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
 
-/*Product Catagory*/
+}
+/*Product Category*/
 .product-categories {
     display: flex;
     justify-content: center;
