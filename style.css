@@ -42,11 +42,40 @@
     width:160px;
     position: fixed;
     left: 0;
-    background-color: #111; /* Black */
+    background-color: white; 
+    text-align: center;
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 20px;
-
 }
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+}
+
+/* change colour of element when hovering over it */
+.sidenav a:hover {
+    background-color: #9fb4ce
+;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+    display: none;
+    background-color: #262626;
+    padding-left: 8px;
+}
+
+
 /*Product Category*/
 .product-categories {
     display: flex;
