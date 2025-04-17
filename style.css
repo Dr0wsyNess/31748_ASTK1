@@ -1,3 +1,40 @@
+*{
+  font-family: Verdana, sans-serif;
+
+}
+
+h1 {
+  color: #495e7d;
+  line-height:50px;
+  font-size: 290%;
+}
+
+h2{
+  color: #889CB6; 
+  font-size: 160%;
+}
+
+h3 {
+  color: #94ABC8;
+  font-size: 130%;
+}
+
+h4{
+font-size: 118%;
+color: #9fb4ce;
+}
+
+body{
+  font-family: Verdana, sans-serif;
+  color: #1D181E;
+  background-color: #F1F3F3;
+}
+
+p, li {font-size: 95%;}
+
+a {color: #94ABC8;}
+
+
 .logo{
     float: left;
     color: black;
@@ -38,6 +75,7 @@
 .catNav{
   overflow: hidden;
   background-color: aliceblue;
+  text-align: center;
 }
 
 .catNav a{
@@ -45,8 +83,8 @@
   padding: 14px 16px;
   float: left;
   display: block;
-  text-align: center;
   text-decoration: none;
+  text-align: right;
 }
 
 .catNav .icon{
@@ -54,7 +92,7 @@
 }
 
 .dropdown {
-  float: left;
+  display: inline-block;
   overflow: hidden;
 }
 
@@ -65,6 +103,7 @@
   padding: 14px 16px;
   background-color: inherit;
   font-family: inherit; 
+  display: flex;
 }
 
 .dropdown-content{
@@ -119,8 +158,49 @@
     grid-template-columns: auto auto auto auto;
 }
 .item {
-    border: 2px solid greenyellow;
-    margin: 8px;
+  text-align: center;
+  border: 2px solid greenyellow;
+  margin: 8px;
+  padding: 10px;
+  background-color: aliceblue;
+}
+
+.addCart-btn{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 20px;
+  color: #F1F3F3;
+  background-color: #889CB6;
+  border-radius: 10px;
+  border-color: #9fb4ce;
+
+}
+
+form{
+    display: flex;
+    justify-content: center;
     padding: 10px;
-    background-color: aliceblue;
+}
+
+form input {
+  height: 30px;
+  width: 100%;
+  border-radius: 25px;
+  border-color: #9fb4ce;
+  padding: 0 20px;
+}
+
+.shopping-btn{
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  color: #F1F3F3;
+  background-color: #889CB6;
+  border-radius: 50px;
+  border-color: #9fb4ce;
+  padding: 10px;
+  bottom:40px;
+	right:40px;
+  box-shadow: 2px 2px 3px #999;
 }
