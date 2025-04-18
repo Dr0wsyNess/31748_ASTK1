@@ -169,12 +169,23 @@ a {color: #94ABC8;}
   display: flex;
   justify-content: center;
   width: 100%;
-  font-size: 20px;
+  font-size: 15px;
   color: #F1F3F3;
   background-color: #889CB6;
   border-radius: 10px;
   border-color: #9fb4ce;
 
+}
+
+.addCart-btn:disabled{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 15px;
+  color: grey;
+  background-color: lightgray;
+  border-radius: 10px;
+  border-color: grey;
 }
 
 form{
