@@ -28,6 +28,8 @@
         </a>
     </div>
 
+    <?php include('category.php'); ?>
+
     <!--Catalogue sidenav-->
     <div class="catNav" id="myCatNav">
         <div class="dropdown">
