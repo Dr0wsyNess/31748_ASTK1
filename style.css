@@ -189,6 +189,15 @@ form input {
   border-radius: 25px;
   border-color: #9fb4ce;
   padding: 0 20px;
+  border-radius: 10px 0px 0px 10px;
+}
+
+form button {
+  width: 50px;
+  color: white;
+  background-color: #889CB6;
+  border-color: #9fb4ce;
+  border-radius: 0px 10px 10px 0px;
 }
 
 .shopping-btn{
