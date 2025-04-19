@@ -28,83 +28,14 @@
         </a>
     </div>
 
+    <!--Catalogue sidenav-->
     <?php include('category.php'); ?>
 
-    <!--Catalogue sidenav-->
-    <div class="catNav" id="myCatNav">
-        <div class="dropdown">
-            <button class="dropdown-btn"> Frozen
-                <!--down arrow icon-->
-                <i class="material-icons">arrow_drop_down</i>
-            </button>
-            <div class="dropdown-content">
-                <a href="#">Delivery details</a>
-                <a href="#">Shopping cart</a>
-            </div>
-        </div>
-        <div class="dropdown">
-            <button class="dropdown-btn"> Fresh
-                <!--down arrow icon-->
-                <i class="material-icons">arrow_drop_down</i>
-            </button>
-            <div class="dropdown-content">
-                <a href="#">Delivery details</a>
-                <a href="#">Shopping cart</a>
-            </div>
-        </div>
-        <div class="dropdown">
-            <button class="dropdown-btn"> Chilled
-                <!--down arrow icon-->
-                <!-- <i class="fa fa-caret-down"></i> -->
-                <i class="material-icons">arrow_drop_down</i>
-            </button>
-            <div class="dropdown-content">
-                <a href="#">Delivery details</a>
-                <a href="#">Shopping cart</a>
-            </div>
-        </div>
-        <div class="dropdown">
-            <button class="dropdown-btn"> Beverages
-                <!--down arrow icon-->
-                <!-- <i class="fa fa-caret-down"></i> -->
-                <i class="material-icons">arrow_drop_down</i>
-            </button>
-            <div class="dropdown-content">
-                <a href="#">Delivery details</a>
-                <a href="#">Shopping cart</a>
-            </div>
-        </div>
-        <div class="dropdown">
-            <button class="dropdown-btn"> Home
-                <!--down arrow icon-->
-                <i class="material-icons">arrow_drop_down</i>
-            </button>
-            <div class="dropdown-content">
-                <a href="#">Delivery details</a>
-                <a href="#">Shopping cart</a>
-            </div>
-        </div>
-        <div class="dropdown">
-            <button class="dropdown-btn"> Pet Food
-                <!--down arrow icon-->
-                <i class="material-icons">arrow_drop_down</i>
-            </button>
-            <div class="dropdown-content">
-                <a href="#">Delivery details</a>
-                <a href="#">Shopping cart</a>
-            </div>
-            <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="dropdownFun()">&#9776;</a>
-        </div>
-        <div class="dropdown">
-            
-        </div>
-        <div class="dropdown"></div>
-    </div>
     <!-- search bar -->
     <div>
         <form action="index.php" method="get">
             <input type="text" placeholder="Search products..." name="searchedProduct">
-            <button type="submit" value="Retrive Data"><i class="material-icons">search</i></button>
+            <button type="submit" value="Retrieve Data"><i class="material-icons">search</i></button>
         </form>
     </div>
 
