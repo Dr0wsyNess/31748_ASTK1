@@ -144,6 +144,12 @@ a {color: #94ABC8;}
     .sidenav a {font-size: 18px;}
   } */
 /* Main content */
+
+.categories-header{
+  color: #495e7d;
+  font-size: 160%;
+}
+
 .main {
     font-size: 20px; /* Increased text to enable scrolling */
     padding: 0px 10px;

@@ -39,64 +39,10 @@
         </form>
     </div>
 
-    <?php include('products.php'); ?>
-
     <div class="main">
-        <h1>Catalogue</h1>
-        <h2>Roomates</h2>
-        <div class="product-categories">
-            <div class="item">
-                <img src="./images/kaveh_fku.png" height="100px">
-                <h3>Kaveh</h3>
-                <p>Price: </p>
-                <button class="addCart-btn" type="button">
-                    <i class="material-icons">add_shopping_cart</i>
-                    Add to Cart</button>
-            </div>
-            <div class="item">
-                <img src="./images/alhaitham_fku.png" height="100px">
-                <h3>Haitham</h3>
-                <p>Price: </p>
-                <button class="addCart-btn" type="button">Add to Cart</button>
-            </div>
-            <div class="item">
-                <img src="./images/kaveh_fku.png" height="100px">
-                <h3>Kaveh</h3>
-                <p>Price: </p>
-                <button class="addCart-btn" type="button">Add to Cart</button>
-            </div>
-            <div class="item">
-                <img src="./images/kaveh_fku.png" height="100px">
-                <h3>Kaveh</h3>
-                <p>Price: </p>
-                <button class="addCart-btn" type="button">Add to Cart</button>
-            </div>
-            <div class="item">
-                <img src="./images/kaveh_fku.png" height="100px">
-                <h3>Kaveh</h3>
-                <p>Price: </p>
-                <button class="addCart-btn" type="button">Add to Cart</button>
-            </div>
-            <div class="item">
-                <img src="./images/kaveh_fku.png" height="100px">
-                <h3>Kaveh</h3>
-                <p>Price: </p>
-                <button class="addCart-btn" type="button">Add to Cart</button>
-            </div>
-            <div class="item">
-                <img src="./images/kaveh_fku.png" height="100px">
-                <h3>Kaveh</h3>
-                <p>Price: </p>
-                <button class="addCart-btn" type="button">Add to Cart</button>
-            </div>
-            <div class="item">
-                <img src="./images/kaveh_fku.png" height="100px">
-                <h3>Kaveh</h3>
-                <p>Price: </p>
-                <button class="addCart-btn" type="button">Add to Cart</button>
-            </div>
-        </div>
+    <?php include('products.php'); ?>
     </div>
+
     <!--Shopping Cart-->
     <div>
         <a href="cart.html">

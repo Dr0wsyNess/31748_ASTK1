@@ -6,20 +6,54 @@ if (isset($_REQUEST['searchedProduct'])) {
     $keywords = $_REQUEST['searchedProduct'];
     //Will return all product whose product_name contains "keywords".
     $query_string = "select * FROM products WHERE product_name LIKE '%$keywords%'";
+    //category page nav
+    ?>
+    <h6>
+        <a href="index.php">All Products</a>
+        > <?= $keywords ?>
+    </h6>
+    <h1 class="categories-header"> Showing results for : <?= $keywords ?></h1>
+<?php
+
     // check if sub_category is in the URL
 } else if (isset($_REQUEST['sub_category'])) {
     $subcategory = $_REQUEST['sub_category'];
     //display all products that has the matching subcategories 
     $query_string = "select * FROM products WHERE sub_categories = '$subcategory'";
+
+    //get the sub-category's parent category to display it in the current page nav
+    $category_query_string = "select DISTINCT category FROM products WHERE sub_categories = '$subcategory'";
+    $category =  mysqli_fetch_row(mysqli_query($connection, $category_query_string));
+?>
+    <h6>
+        <a href="index.php">All Products</a> >
+        <a href="?<?= $category[0] ?>"><?= $category[0] ?></a>
+        > <?= $subcategory ?>
+    </h6>
+    <h1 class="categories-header"><?= $subcategory ?></h1>
+<?php
 }
 // check if category is in the URL
 else if (isset($_REQUEST['category'])) {
     $category = $_REQUEST['category'];
     //display all products that has the matching category 
     $query_string = "select * FROM products WHERE category = '$category'";
+
+    // current page nav, where users can click on All Products to return to see all the products
+?>
+    <h6>
+        <a href="index.php">All Products</a> >
+        <?= $category ?>
+    </h6>
+    <h1 class="categories-header"><?= $category ?></h1>
+<?php
+
 } else {
     //display products all products
     $query_string = "select * FROM products";
+    ?>
+    <h1 class="categories-header">All Products</h1>
+    <?php
 }
 
 $result = mysqli_query($connection, $query_string);
