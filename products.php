@@ -27,7 +27,7 @@ if (isset($_REQUEST['searchedProduct'])) {
 ?>
     <h6>
         <a href="index.php">All Products</a> >
-        <a href="?<?= $category[0] ?>"><?= $category[0] ?></a>
+        <a href="?category=<?= $category[0] ?>"><?= $category[0] ?></a>
         > <?= $subcategory ?>
     </h6>
     <h1 class="categories-header"><?= $subcategory ?></h1>
@@ -70,17 +70,18 @@ $result = mysqli_query($connection, $query_string);
         ?>
             <div class="item">
                 <h3><?= $product['product_name'] ?></h3>
-                <p>Price: <?= $product['unit_price'] ?></p>
+                <p>$<?= $product['unit_price'] ?></p>
+                <p><?= $product['unit_quantity'] ?></p>
                 <?php
                 //toggle addCart button which is dependent on the stock quantity
                 if ($product['in_stock'] != 0) {
                 ?>
-                    <p> Stock: <?= $product['in_stock'] ?></p>
+                    <p>in stock</p>
                     <button type="button" class="addCart-btn">Add to Cart</button>
                 <?php
                 } else {
                 ?>
-                    <p> Stock: <?= $product['in_stock'] ?></p>
+                    <p>not in stock</p>
                     <button type="button" class="addCart-btn" disabled>Add to Cart</button>
                 <?php
                 }

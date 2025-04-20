@@ -21,8 +21,7 @@
     <div id="top" class="nav">
         <a class="active" href="index.php">Home</a>
         <a href="about.html">About</a>
-        <a href="delivery.html">Delivery details</a>
-        <a href="cart.html">
+        <a href="cart.php">
             <i class="material-icons">shopping_cart</i>
             Shopping cart
         </a>

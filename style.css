@@ -180,7 +180,17 @@ a {color: #94ABC8;}
   background-color: #889CB6;
   border-radius: 10px;
   border-color: #9fb4ce;
+}
 
+.addCart-btn:hover{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 15px;
+  background-color:#495e7d;
+  color: white;
+  border-radius: 10px;
+  border-color: #495e7d;
 }
 
 .addCart-btn:disabled{
@@ -229,4 +239,72 @@ form button {
   bottom:40px;
 	right:40px;
   box-shadow: 2px 2px 3px #999;
+}
+
+
+/* -----------------------table------------------------------------------------------------ */
+table {
+  font-family: Verdana, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin: auto;
+}
+
+th {
+  color: #F1F3F3;
+  border: 1px solid #495e7d;
+  padding: 20px;
+  background-color: #889CB6; 
+}
+
+td{
+  padding: 15px;
+position: relative;
+padding-right: 70px;
+}
+
+
+/* makes table design to be flexible --> creating a more responsive layout structure depending on the viewport size (by being a flexbox) */
+.flex-container{
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+/* every odd elements row in the table has a background colour */
+tr:nth-child(odd) {
+  background-color: #C8D4E1;
+}
+
+/* -----------------------CheckOut------------------------------------------------------------ */
+.removeItem-btn{
+  color: #495e7d;
+  text-decoration: underline;
+  border-style: hidden;
+}
+
+.clearAllCart-btn{
+  color: red;
+  border-radius: 5px;
+  border-color: red;
+}
+.clearAllCart-btn:hover{
+  color: #F1F3F3;
+  background-color: red;
+  border-radius: 5px;
+  border-color: red;
+}
+
+.checkOut-btn{
+  color: #F1F3F3;
+  background-color: #889CB6;
+  border-radius: 5px;
+  border-color: #9fb4ce;
+}
+
+.checkOut-btn:hover{
+  background-color:#495e7d;
+  color: white;
+  border-radius: 5px;
+  border-color: #495e7d;
 }

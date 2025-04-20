@@ -17,11 +17,18 @@
     <div id="top" class="nav">
         <a href="index.php">Home</a>
         <a href="about.html">About</a>
-        <a class="active" href="cart.html">
+        <a class="active" href="cart.php">
             <i class="material-icons">shopping_cart</i>
             Shopping cart
         </a>
     </div>
+
+    <?php
+    session_start();
+    $connection = mysqli_connect('localhost', 'root', '', 'ASTK1Database');
+    if(isset($_SESSION['cart']))
+    ?>
+
 
     <div class="main">
         <h1>Cart</h1>
