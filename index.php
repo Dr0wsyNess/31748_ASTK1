@@ -22,6 +22,8 @@
             $_SESSION['cart'][$product_id]['quantity'] = 1;
         }
     }
+    $products_in_cart = isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0;
+
     ?>    
     <!--logo-->
     <div id="top" class="nav">
@@ -33,7 +35,7 @@
         <a href="about.html">About</a>
         <a href="cart.php">
             <i class="material-icons">shopping_cart</i>
-            Shopping cart
+            <span class="icon" style="background-color: #495e7d;"><?=$products_in_cart ?></span>
         </a>
     </div>
 
@@ -57,6 +59,7 @@
         <a href="cart.php">
             <button class="shopping-btn">
                 <i class="material-icons">shopping_cart</i>
+                <span class="icon"><?=$products_in_cart ?></span>
             </button>
         </a>
     </div>

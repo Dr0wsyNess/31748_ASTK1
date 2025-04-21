@@ -72,6 +72,20 @@ a {color: #94ABC8;}
     color: #F1F3F3;
 }
 
+.icon{
+  display:inline-block;
+  text-align: center;
+  border-radius: 50px;
+  color: #f9f9f9;
+  font-size: 14px;
+  line-height: 16px;
+  width: 16px;
+  height: 16px;
+  font-weight: bold;
+  right:0px;
+  
+}
+
 .catNav{
   overflow: hidden;
   background-color: aliceblue;
@@ -307,4 +321,11 @@ tr:nth-child(odd) {
   color: white;
   border-radius: 5px;
   border-color: #495e7d;
+}
+
+.checkOut-btn:disabled{
+  color: grey;
+  background-color: lightgray;
+  border-radius: 5px;
+  border-color: grey;
 }

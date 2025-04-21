@@ -9,6 +9,31 @@
 </head>
 
 <body>
+    <?php
+    session_start();
+    $connection = mysqli_connect('localhost', 'root', '', 'ASTK1Database');
+    $products_in_cart = isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0;
+
+    //remove product from cart from the server side
+    if (isset($_POST['removeProduct'])) {
+        unset($_SESSION['cart'][$_POST['removeProduct']]);
+    }
+    if (isset($_POST['updateQuantity'])) {
+        // $updated_value = $_POST['updateQuantity'];
+        // $update_id = $_POST['updateQuantityID'];
+        // foreach($$_SESSION['cart'] as $id => $quantity){
+        //     if(isset($updated_value) && $update_id == $id){
+        //         $_SESSION['cart'][$id] = $quantity;
+        //     }
+        // }
+    }
+
+    //clear Cart
+    if (isset($_POST['clearCart'])) {
+        unset($_SESSION['cart']);
+    }
+
+    ?>
     <!--logo-->
     <div id="top" class="nav col-12 col-t-12">
         <img src="./images/logo_mono.png" width="70">
@@ -19,18 +44,10 @@
         <a href="about.html">About</a>
         <a class="active" href="cart.php">
             <i class="material-icons">shopping_cart</i>
-            Shopping cart
+            <span class="icon" style="background-color: #495e7d;"><?= $products_in_cart ?></span>
         </a>
     </div>
-
     <?php
-    session_start();
-    $connection = mysqli_connect('localhost', 'root', '', 'ASTK1Database');
-    
-    //remove product from cart
-    if(isset($_POST['removeProduct'])){
-        unset($_SESSION['cart'][$_POST['removeProduct']]);
-    }
 
 
     if (empty($_SESSION['cart'])) {
@@ -41,7 +58,8 @@
             <p>No items currently in your cart.</p>
             <a href="index.php">
                 <button class="checkOut-btn">Continue shopping</button>
-            </a>
+            </a> <br>
+            <a href="delivery.php"><button class="checkOut-btn" type="button" disabled>Place an Order</button> </a>
         </div>
     <?php
     } else {
@@ -67,8 +85,6 @@
 
                 <?php
                 while ($product = mysqli_fetch_array($result)) {
-                    // if (mysqli_num_rows($result) > 0) {
-                    //     foreach ($result as $product) {
                 ?>
                     <tr>
                         <td></td>
@@ -93,16 +109,17 @@
                             //print only the quantity for the current product_id
                             if ($cart_id == $product['product_id']) {
                                 $total = $quantity['quantity'] * $product['unit_price'];
-                            ?>
+                        ?>
                                 <td>
-                                    <form action="cart.php" method="post">
-                                        <input type="number" value="<?= $quantity['quantity'] ?>">
+                                    <form method="post" action="cart.php">
+                                        <input type="hidden" name="updateQuantityID" value="<?= $product['product_id'] ?>">
+                                        <input type="number" value="<?= $quantity['quantity'] ?>" name="updateQuantity">
                                     </form>
                                 </td>
                                 <td>
                                     $ <?= $total ?>
                                 </td>
-                            <?php
+                        <?php
                                 $subTotal += $total;
                             }
                         }
@@ -118,10 +135,10 @@
                 </tfoot>
             </table>
             <div>
-                <button class="clearAllCart-btn" type="button">
-                    Clear All</button>
-                <button class="checkOut-btn" type="button">
-                    Checkout</button>
+                <form method="post" action="cart.php">
+                    <input type="submit" value="Clear All" name="clearCart" class="class=" clearAllCart-btn">
+                </form>
+                <a href="delivery.php"><button class="checkOut-btn" type="button">Place an Order</button> </a>
             </div>
         </div>
     <?php
