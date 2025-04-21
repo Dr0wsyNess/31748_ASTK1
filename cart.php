@@ -26,8 +26,15 @@
     <?php
     session_start();
     $connection = mysqli_connect('localhost', 'root', '', 'ASTK1Database');
-    if(empty($_SESSION['cart'])){
-        ?>
+    
+    //remove product from cart
+    if(isset($_POST['removeProduct'])){
+        unset($_SESSION['cart'][$_POST['removeProduct']]);
+    }
+
+
+    if (empty($_SESSION['cart'])) {
+    ?>
         <h1>Cart</h1>
         <div class="main" style="text-align: center;">
             <h3>Your cart is empty</h3>
@@ -36,18 +43,19 @@
                 <button class="checkOut-btn">Continue shopping</button>
             </a>
         </div>
-        <?php
-    }
-    else{
+    <?php
+    } else {
         $cart = $_SESSION['cart'];
-        // $subTotal = 0;
+        // echo '<pre>';
+        // var_dump($_SESSION);
+        // echo '</pre>';
+        $subTotal = 0;
         $cart_array = implode(',', array_keys($_SESSION['cart']));
-        echo $cart_array;
         $query_string = "select * FROM products WHERE product_id in($cart_array)";
         $result = mysqli_query($connection, $query_string);
-        $num_rows = mysqli_num_rows($result);
-        ?>
+    ?>
         <div class="main">
+            <h1>Cart</h1>
             <table>
                 <tr>
                     <th class="row-titles">Image</th>
@@ -56,41 +64,67 @@
                     <th class="row-titles">Quantity</th>
                     <th class="row-titles">Total</th>
                 </tr>
-                <tr>
-                    <?php
-                    if(mysqli_num_rows($result) > 0 ){
-                        foreach($result as $product){
-                            ?>
-                                <td></td>
-                            <?php
+
+                <?php
+                while ($product = mysqli_fetch_array($result)) {
+                    // if (mysqli_num_rows($result) > 0) {
+                    //     foreach ($result as $product) {
+                ?>
+                    <tr>
+                        <td></td>
+                        <?php
+                        ?>
+                        <td>
+                            <?= $product['product_name'] ?> <br>
+                            <form method="post" action="cart.php">
+                                <input type="hidden" name="removeProduct" value="<?= $product['product_id'] ?>">
+                                <input type="submit" class="removeItem-btn" value="Remove Item">
+                                <!-- <button class="removeItem-btn" type="button">Remove Item</button> -->
+                            </form>
+                        </td>
+                        <?php
+                        ?>
+                        <td>
+                            $<?= $product['unit_price'] ?>
+                        </td>
+                        <?php
+                        //loop through $cart array where the key of $product_id is used to access quantity value
+                        foreach ($cart as $cart_id => $quantity) {
+                            //print only the quantity for the current product_id
+                            if ($cart_id == $product['product_id']) {
+                                $total = $quantity['quantity'] * $product['unit_price'];
                             ?>
                                 <td>
-                                    <?= $product['product_name'] ?> <br>
-                                    <button class="removeItem-btn" type="button">Remove Item</button>
+                                    <form action="cart.php" method="post">
+                                        <input type="number" value="<?= $quantity['quantity'] ?>">
+                                    </form>
                                 </td>
-                            <?php
-                            ?>
                                 <td>
-                                    $<?= $product['unit_price'] ?>
+                                    $ <?= $total ?>
                                 </td>
                             <?php
-                            ?>
-                                <td>
-                                    
-                                </td>
-                            <?php
-                            ?>
-                                <td>
-                                    
-                                </td>
-                            <?php
+                                $subTotal += $total;
+                            }
                         }
-                    }
-                    ?>
-                </tr>
+                        ?>
+                    </tr>
+                <?php
+                }
+                ?>
+                <tfoot>
+                    <tr>
+                        <td colspan="5">Subtotal: $<?= $subTotal ?></td>
+                    </tr>
+                </tfoot>
             </table>
+            <div>
+                <button class="clearAllCart-btn" type="button">
+                    Clear All</button>
+                <button class="checkOut-btn" type="button">
+                    Checkout</button>
+            </div>
         </div>
-        <?php
+    <?php
     }
     ?>
 
@@ -124,13 +158,12 @@
             </tfoot>
         </table> -->
 
-        <div>
-            <button class="clearAllCart-btn" type="button">
-                Clear All</button>
-            <button class="checkOut-btn" type="button">
-                Checkout</button>
-        </div>
-    </div> 
+    <!-- <div>
+        <button class="clearAllCart-btn" type="button">
+            Clear All</button>
+        <button class="checkOut-btn" type="button">
+            Checkout</button>
+    </div> -->
 
 </body>
 
