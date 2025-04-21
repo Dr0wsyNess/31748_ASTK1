@@ -12,7 +12,17 @@
 <body>
     <?php
     session_start();
-    ?>
+    //Add to Cart
+    if(isset($_POST['addToCart'])){
+        $product_id = $_POST['product_id'];
+        if(isset($_SESSION['cart'][$product_id])){
+            $_SESSION['cart'][$product_id]['quantity'] += 1;
+        }
+        else{
+            $_SESSION['cart'][$product_id]['quantity'] = 1;
+        }
+    }
+    ?>    
     <!--logo-->
     <div id="top" class="nav">
         <img src="./images/logo_mono.png" width="70">
@@ -44,7 +54,7 @@
 
     <!--Shopping Cart-->
     <div>
-        <a href="cart.html">
+        <a href="cart.php">
             <button class="shopping-btn">
                 <i class="material-icons">shopping_cart</i>
             </button>

@@ -72,20 +72,25 @@ $result = mysqli_query($connection, $query_string);
                 <h3><?= $product['product_name'] ?></h3>
                 <p>$<?= $product['unit_price'] ?></p>
                 <p><?= $product['unit_quantity'] ?></p>
-                <?php
-                //toggle addCart button which is dependent on the stock quantity
-                if ($product['in_stock'] != 0) {
+
+                <form method="post" action="index.php">
+                    <input type="hidden" name="product_id" value="<?= $product['product_id'] ?>">
+                    <?php
+                    //toggle addCart button which is dependent on the stock quantity
+                    if ($product['in_stock'] != 0) {
+                    ?>
+
+                        <label>in stock</label><br>
+                        <input type="submit" name ="addToCart" class="addCart-btn" value="Add to Cart">
+                    <?php
+                    } else {
+                    ?>
+                        <label>not in stock</label><br>
+                        <input type="submit" class="addCart-btn" value="Add to Cart" disabled>
+                    <?php
+                    }
                 ?>
-                    <p>in stock</p>
-                    <button type="button" class="addCart-btn">Add to Cart</button>
-                <?php
-                } else {
-                ?>
-                    <p>not in stock</p>
-                    <button type="button" class="addCart-btn" disabled>Add to Cart</button>
-                <?php
-                }
-                ?>
+                </form>
             </div>
     <?php
         }

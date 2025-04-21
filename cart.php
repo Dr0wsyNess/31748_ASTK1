@@ -26,11 +26,76 @@
     <?php
     session_start();
     $connection = mysqli_connect('localhost', 'root', '', 'ASTK1Database');
-    if(isset($_SESSION['cart']))
+    if(empty($_SESSION['cart'])){
+        ?>
+        <h1>Cart</h1>
+        <div class="main" style="text-align: center;">
+            <h3>Your cart is empty</h3>
+            <p>No items currently in your cart.</p>
+            <a href="index.php">
+                <button class="checkOut-btn">Continue shopping</button>
+            </a>
+        </div>
+        <?php
+    }
+    else{
+        $cart = $_SESSION['cart'];
+        // $subTotal = 0;
+        $cart_array = implode(',', array_keys($_SESSION['cart']));
+        echo $cart_array;
+        $query_string = "select * FROM products WHERE product_id in($cart_array)";
+        $result = mysqli_query($connection, $query_string);
+        $num_rows = mysqli_num_rows($result);
+        ?>
+        <div class="main">
+            <table>
+                <tr>
+                    <th class="row-titles">Image</th>
+                    <th class="row-titles">Item</th>
+                    <th class="row-titles">Unit Price</th>
+                    <th class="row-titles">Quantity</th>
+                    <th class="row-titles">Total</th>
+                </tr>
+                <tr>
+                    <?php
+                    if(mysqli_num_rows($result) > 0 ){
+                        foreach($result as $product){
+                            ?>
+                                <td></td>
+                            <?php
+                            ?>
+                                <td>
+                                    <?= $product['product_name'] ?> <br>
+                                    <button class="removeItem-btn" type="button">Remove Item</button>
+                                </td>
+                            <?php
+                            ?>
+                                <td>
+                                    $<?= $product['unit_price'] ?>
+                                </td>
+                            <?php
+                            ?>
+                                <td>
+                                    
+                                </td>
+                            <?php
+                            ?>
+                                <td>
+                                    
+                                </td>
+                            <?php
+                        }
+                    }
+                    ?>
+                </tr>
+            </table>
+        </div>
+        <?php
+    }
     ?>
 
 
-    <div class="main">
+    <!-- <div class="main">
         <h1>Cart</h1>
         <h3>Your cart is empty</h3>
         <p>No items currently in your cart. Continue shopping</p>
@@ -57,7 +122,7 @@
                     <td colspan="5">Subtotal: $</td>
             </tr>
             </tfoot>
-        </table>
+        </table> -->
 
         <div>
             <button class="clearAllCart-btn" type="button">
@@ -65,7 +130,7 @@
             <button class="checkOut-btn" type="button">
                 Checkout</button>
         </div>
-    </div>
+    </div> 
 
 </body>
 
