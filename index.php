@@ -16,9 +16,11 @@
     if(isset($_POST['addToCart'])){
         $product_id = $_POST['product_id'];
         if(isset($_SESSION['cart'][$product_id])){
+            //if product exist in cart add one to quantity
             $_SESSION['cart'][$product_id]['quantity'] += 1;
         }
         else{
+            // if not add new product
             $_SESSION['cart'][$product_id]['quantity'] = 1;
         }
     }
