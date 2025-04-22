@@ -7,7 +7,7 @@ if (isset($_REQUEST['searchedProduct'])) {
     //Will return all product whose product_name contains "keywords".
     $query_string = "select * FROM products WHERE product_name LIKE '%$keywords%'";
     //category page nav
-    ?>
+?>
     <h6>
         <a href="index.php">All Products</a>
         > <?= $keywords ?>
@@ -51,9 +51,9 @@ else if (isset($_REQUEST['category'])) {
 } else {
     //display products all products
     $query_string = "select * FROM products";
-    ?>
+?>
     <h1 class="categories-header">All Products</h1>
-    <?php
+<?php
 }
 
 $result = mysqli_query($connection, $query_string);
@@ -71,27 +71,28 @@ $result = mysqli_query($connection, $query_string);
             <div class="item">
                 <img src="./images/<?= $product['image'] ?>" height="100px">
                 <h3><?= $product['product_name'] ?></h3>
-                <p>$<?= $product['unit_price'] ?></p>
-                <p><?= $product['unit_quantity'] ?></p>
-
-                <form method="post" action="index.php">
-                    <input type="hidden" name="product_id" value="<?= $product['product_id'] ?>">
-                    <?php
-                    //toggle addCart button which is dependent on the stock quantity
-                    if ($product['in_stock'] != 0) {
-                    ?>
-
-                        <label>in stock</label><br>
-                        <input type="submit" name ="addToCart" class="addCart-btn" value="Add to Cart">
-                    <?php
-                    } else {
-                    ?>
-                        <label>not in stock</label><br>
-                        <input type="submit" class="addCart-btn" value="Add to Cart" disabled>
-                    <?php
-                    }
+                <p style="font-weight: bold">$<?= $product['unit_price'] ?></p>
+                <p style="font-size: 75%; color: grey"><?= $product['unit_quantity'] ?></p>
+                <?php
+                //toggle addCart button which is dependent on the stock quantity
+                if ($product['in_stock'] != 0) {
                 ?>
-                </form>
+                    <label style="font-size: 80%">in stock</label><br><br>
+                    <form method="post" action="index.php">
+                        <input type="hidden" name="product_id" value="<?= $product['product_id'] ?>">
+                        <input type="submit" name="addToCart" class="addCart-btn" value="Add to Cart">
+                    </form>
+                <?php
+                } else {
+                ?>
+                    <label style="font-size: 80%">not in stock</label><br><br>
+                    <form>
+                        <input type="submit" class="addCart-btn" value="Add to Cart" disabled>
+                    </form>
+                <?php
+                }
+                ?>
+                <!-- </form> -->
             </div>
     <?php
         }

@@ -1,16 +1,16 @@
-*{
+* {
   font-family: Verdana, sans-serif;
 
 }
 
 h1 {
   color: #495e7d;
-  line-height:50px;
+  line-height: 50px;
   font-size: 290%;
 }
 
-h2{
-  color: #889CB6; 
+h2 {
+  color: #889CB6;
   font-size: 160%;
 }
 
@@ -19,61 +19,65 @@ h3 {
   font-size: 130%;
 }
 
-h4{
-font-size: 118%;
-color: #9fb4ce;
+h4 {
+  font-size: 118%;
+  color: #9fb4ce;
 }
 
-body{
+body {
   font-family: Verdana, sans-serif;
   color: #1D181E;
   background-color: #F1F3F3;
 }
 
-p, li {font-size: 95%;}
+p,
+li {
+  font-size: 95%;
+}
 
-a {color: #94ABC8;}
+a {
+  color: #94ABC8;
+}
 
 
-.logo{
-    float: left;
-    color: black;
-    scale: 20%;
-    padding:0px; 
+.logo {
+  float: left;
+  color: black;
+  scale: 20%;
+  padding: 0px;
 }
 
 /* Add a backgroumd colour to the nav */
-.nav{
-    overflow: hidden;
-    position: sticky;
-    background-color: #94ABC8;
-    text-align: center;
+.nav {
+  overflow: hidden;
+  position: sticky;
+  background-color: #94ABC8;
+  text-align: center;
 }
 
 /* add styles of the elements that is inside of the nav */
-.nav a{
-    display: inline-block;
-    color: #F1F3F3;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 95%;
+.nav a {
+  display: inline-block;
+  color: #F1F3F3;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 95%;
 }
 
 /* change colour of element when hovering over it */
 .nav a:hover {
-    background-color: #9fb4ce
-;
+  background-color: #9fb4ce;
 }
 
 /* attach separate color to the active element */
 .nav a.active {
-    background-color: #889CB6; 
-    color: #F1F3F3;
+  background-color: #889CB6;
+  color: #F1F3F3;
 }
 
-.icon{
-  display:inline-block;
+.icon {
+  display: inline-block;
   text-align: center;
   border-radius: 50px;
   color: #f9f9f9;
@@ -82,18 +86,19 @@ a {color: #94ABC8;}
   width: 16px;
   height: 16px;
   font-weight: bold;
-  right:0px;
-  
+  right: 0px;
+
 }
 
-.catNav{
+.catNav {
   overflow: hidden;
-  background-color: aliceblue;
+  background-color: #e1eaf2;
   text-align: center;
 }
 
-.catNav a{
-  font-size: 17px;
+.catNav a {
+  color: #495e7d;
+  font-size: 95%;
   padding: 14px 16px;
   float: left;
   display: block;
@@ -101,7 +106,8 @@ a {color: #94ABC8;}
   text-align: right;
 }
 
-.catNav .icon{
+.catNav .icon {
+  color: #495e7d;
   display: none;
 }
 
@@ -110,26 +116,26 @@ a {color: #94ABC8;}
   overflow: hidden;
 }
 
-.dropdown .dropdown-btn{
-  font-size: 17px;  
+.dropdown .dropdown-btn {
+  font-size: 17px;
   border: none;
   outline: none;
   padding: 14px 16px;
   background-color: inherit;
-  font-family: inherit; 
+  font-family: inherit;
   display: flex;
 }
 
-.dropdown-content{
-  display:none;
+.dropdown-content {
+  display: none;
   position: absolute;
   background-color: #f9f9f9;
   min-width: 150px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
-.dropdown-content a{
+.dropdown-content a {
   float: none;
   color: black;
   padding: 12px 16px;
@@ -138,13 +144,14 @@ a {color: #94ABC8;}
   text-align: left;
 }
 
-.catNav a:hover, .dropdown:hover .dropdown-btn {
-  background-color:#889CB6;
+.catNav a:hover,
+.dropdown:hover .dropdown-btn {
+  background-color: #889CB6;
   color: white;
 }
 
-.dropdown-content a:hover{
-  background-color:#889CB6;
+.dropdown-content a:hover {
+  background-color: #889CB6;
   color: white;
 }
 
@@ -152,40 +159,47 @@ a {color: #94ABC8;}
   display: block;
 }
 
-  /* Some media queries for responsiveness *
+/* Some media queries for responsiveness *
 @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
   } */
 /* Main content */
 
-.categories-header{
+.categories-header {
   color: #495e7d;
   font-size: 160%;
 }
 
 .main {
-    font-size: 20px; /* Increased text to enable scrolling */
-    padding: 0px 10px;
+  font-size: 20px;
+  /* Increased text to enable scrolling */
+  padding: 0px 10px;
 }
-  
+
 /*Product Category*/
 .product-categories {
-    /* justify-content: center; */
-    display:grid;
-    background-color: beige;
-
-    grid-template-columns: auto auto auto auto;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
 }
+
 .item {
+  display: block;
   text-align: center;
-  border: 2px solid greenyellow;
+  border: 2px solid grey;
   margin: 8px;
   padding: 10px;
-  background-color: aliceblue;
+  background-color: whitesmoke ;
 }
 
-.addCart-btn{
+.item:hover {
+  text-align: center;
+  margin: 8px;
+  padding: 10px;
+  background-color: #e1eaf2;
+}
+
+.addCart-btn {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -194,20 +208,21 @@ a {color: #94ABC8;}
   background-color: #889CB6;
   border-radius: 10px;
   border-color: #9fb4ce;
+  padding: 15px;
 }
 
-.addCart-btn:hover{
+.addCart-btn:hover {
   display: flex;
   justify-content: center;
   width: 100%;
   font-size: 15px;
-  background-color:#495e7d;
+  background-color: #495e7d;
   color: white;
   border-radius: 10px;
   border-color: #495e7d;
 }
 
-.addCart-btn:disabled{
+.addCart-btn:disabled {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -218,13 +233,13 @@ a {color: #94ABC8;}
   border-color: grey;
 }
 
-form{
-    display: flex;
-    justify-content: center;
-    padding: 10px;
+.searchbar {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
 }
 
-form input {
+.searchbar input {
   height: 30px;
   width: 100%;
   border-radius: 25px;
@@ -233,7 +248,7 @@ form input {
   border-radius: 10px 0px 0px 10px;
 }
 
-form button {
+.searchbar button {
   width: 50px;
   color: white;
   background-color: #889CB6;
@@ -241,7 +256,7 @@ form button {
   border-radius: 0px 10px 10px 0px;
 }
 
-.shopping-btn{
+.shopping-btn {
   position: fixed;
   width: 60px;
   height: 60px;
@@ -250,8 +265,8 @@ form button {
   border-radius: 50px;
   border-color: #9fb4ce;
   padding: 10px;
-  bottom:40px;
-	right:40px;
+  bottom: 40px;
+  right: 40px;
   box-shadow: 2px 2px 3px #999;
 }
 
@@ -268,21 +283,16 @@ th {
   color: #F1F3F3;
   border: 1px solid #495e7d;
   padding: 20px;
-  background-color: #889CB6; 
+  background-color: #889CB6;
 }
 
-td{
+td {
   padding: 15px;
-position: relative;
-padding-right: 70px;
+  position: relative;
 }
 
-
-/* makes table design to be flexible --> creating a more responsive layout structure depending on the viewport size (by being a flexbox) */
-.flex-container{
-  display: flex;
-  flex-wrap: wrap;
-  position: relative;
+.subtotal {
+  background-color: #e1eaf2;
 }
 
 /* every odd elements row in the table has a background colour */
@@ -291,39 +301,58 @@ tr:nth-child(odd) {
 }
 
 /* -----------------------CheckOut------------------------------------------------------------ */
-.removeItem-btn{
+.quantity{
+  font-size: 95%;
+  text-align: center;
+  padding: 12px 0px;
+}
+
+.removeItem-btn {
   color: #495e7d;
   text-decoration: underline;
   border-style: hidden;
 }
 
-.clearAllCart-btn{
+.cart-btns{
+  display: flex;
+  align-items: center; 
+  gap: 10px;           
+  justify-content: flex-end;
+}
+
+.clearAllCart-btn {
+  justify-content: center;
+  font-size: 15px;
+  padding: 15px;
   color: red;
   border-radius: 5px;
   border-color: red;
 }
-.clearAllCart-btn:hover{
+
+.clearAllCart-btn:hover {
   color: #F1F3F3;
   background-color: red;
   border-radius: 5px;
   border-color: red;
 }
 
-.checkOut-btn{
+.checkOut-btn {
+  font-size: 15px;
+  padding: 15px;
   color: #F1F3F3;
   background-color: #889CB6;
   border-radius: 5px;
   border-color: #9fb4ce;
 }
 
-.checkOut-btn:hover{
-  background-color:#495e7d;
+.checkOut-btn:hover {
+  background-color: #495e7d;
   color: white;
   border-radius: 5px;
   border-color: #495e7d;
 }
 
-.checkOut-btn:disabled{
+.checkOut-btn:disabled {
   color: grey;
   background-color: lightgray;
   border-radius: 5px;

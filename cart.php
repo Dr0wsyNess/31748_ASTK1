@@ -61,7 +61,7 @@
             <p>No items currently in your cart.</p>
             <a href="index.php">
                 <button class="checkOut-btn">Continue shopping</button>
-            </a> <br>
+            </a> <br> <br>
             <a href="delivery.php"><button class="checkOut-btn" type="button" disabled>Place an Order</button> </a>
         </div>
     <?php
@@ -85,12 +85,11 @@
                     <th class="row-titles">Quantity</th>
                     <th class="row-titles">Total</th>
                 </tr>
-
                 <?php
                 while ($product = mysqli_fetch_array($result)) {
                 ?>
                     <tr>
-                        <td><img src="./images/<?= $product['image'] ?>" height="100px"></td>
+                        <td style="text-align: center;"><img src="./images/<?= $product['image'] ?>" height="100px"></td>
                         <?php
                         ?>
                         <td>
@@ -103,9 +102,7 @@
                         </td>
                         <?php
                         ?>
-                        <td>
-                            $<?= $product['unit_price'] ?>
-                        </td>
+                        <td style="text-align: center;">$<?= $product['unit_price'] ?></td>
                         <?php
                         //loop through $cart array where the key of $product_id is used to access quantity value
                         foreach ($cart as $cart_id => $quantity) {
@@ -113,15 +110,13 @@
                             if ($cart_id == $product['product_id']) {
                                 $total = $quantity['quantity'] * $product['unit_price'];
                         ?>
-                                <td>
+                                <td style="text-align: center;">
                                     <form method="post" action="cart.php">
                                         <input type="hidden" name="updateQuantityID" value="<?= $product['product_id'] ?>">
-                                        <input type="number" value="<?= $quantity['quantity'] ?>" name="updateQuantity">
+                                        <input type="number" value="<?= $quantity['quantity'] ?>" name="updateQuantity" class="quantity">
                                     </form>
                                 </td>
-                                <td>
-                                    $ <?= $total ?>
-                                </td>
+                                <td style="text-align: center;">$ <?= $total ?></td>
                         <?php
                                 $subTotal += $total;
                             }
@@ -133,17 +128,18 @@
                 ?>
                 <tfoot>
                     <tr>
-                        <td colspan="5">Subtotal: $<?= $subTotal ?></td>
+                        <td colspan="5" class="subtotal" style="text-align: right; font-weight: bold;">Subtotal: $<?= $subTotal ?></td>
                     </tr>
                 </tfoot>
-            </table>
-            <div>
+            </table> <br>
+            <div class="cart-btns">
                 <form method="post" action="cart.php">
-                    <input type="submit" value="Clear All" name="clearCart" class="class=" clearAllCart-btn">
+                    <input type="submit" value="Clear All" name="clearCart" class="class= clearAllCart-btn">
                 </form>
                 <a href="delivery.php"><button class="checkOut-btn" type="button">Place an Order</button> </a>
             </div>
         </div>
+        
     <?php
     }
     ?>

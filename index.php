@@ -46,7 +46,7 @@
 
     <!-- search bar -->
     <div>
-        <form action="index.php" method="get">
+        <form action="index.php" method="get" class="searchbar">
             <input type="text" placeholder="Search products..." name="searchedProduct">
             <button type="submit" value="Retrieve Data"><i class="material-icons">search</i></button>
         </form>
