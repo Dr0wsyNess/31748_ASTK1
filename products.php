@@ -69,6 +69,7 @@ $result = mysqli_query($connection, $query_string);
         foreach ($result as $product) {
         ?>
             <div class="item">
+                <img src="./images/<?= $product['image'] ?>" height="100px">
                 <h3><?= $product['product_name'] ?></h3>
                 <p>$<?= $product['unit_price'] ?></p>
                 <p><?= $product['unit_quantity'] ?></p>

@@ -90,7 +90,7 @@
                 while ($product = mysqli_fetch_array($result)) {
                 ?>
                     <tr>
-                        <td></td>
+                        <td><img src="./images/<?= $product['image'] ?>" height="100px"></td>
                         <?php
                         ?>
                         <td>
