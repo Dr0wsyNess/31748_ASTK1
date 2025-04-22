@@ -358,3 +358,40 @@ tr:nth-child(odd) {
   border-radius: 5px;
   border-color: grey;
 }
+
+/* -----------------------Delivery------------------------------------------------------------ */
+/* .container{
+  display:grid;
+  grid-template-columns: auto auto;
+} */
+
+.deliveryDetail{
+  
+}
+
+/* .deliveryCart{
+  border-radius: 5px;
+  border-color: #94ABC8;
+
+} */
+
+.formLabel{
+  display:block;
+  margin-bottom: 5px;
+}
+
+.formField{
+  display: block;
+  width: 200px;
+  padding: 12px 10px;
+}
+
+.row{
+  display: flex;
+  align-items: center; 
+  gap: 15px;           
+}
+
+.rowGroup{
+
+}

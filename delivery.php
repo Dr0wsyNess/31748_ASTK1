@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-		<meta name="index" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="./style.css" >
-		<title>Online Grocery Store</title>
-	</head>
-    <body>
-        <!--logo-->
-        <div id="top" class="nav col-12 col-t-12">
-            <img src="./images/logo_mono.png" width="70">
-        </div>
-        <!--nav bar-->
-        <div id="top" class="nav col-12 col-t-12">
-			<a href="index.html">Home</a>
-			<a href="about.html">About</a>
-			<a class="active" href="delivery.html">Delivery details</a>
-			<a href="cart.html">Shopping cart</a>
-		</div>
+
+<head>
+    <meta name="index" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <title>Online Grocery Store</title>
+</head>
+
+<body>
+    <?php
+    session_start();
+
+    $products_in_cart = isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0;
+
+    // if(empty($_SESSION['cart']))
+
+    ?>    
+    <!--logo-->
+    <div id="top" class="nav">
+        <img src="./images/logo_mono.png" width="70">
+    </div>
+    <!--nav bar-->
+    <div id="top" class="nav">
+        <a class="active" href="index.php">Home</a>
+        <a href="about.html">About</a>
+        <a href="cart.php">
+            <i class="material-icons">shopping_cart</i>
+            <span class="icon" style="background-color: #495e7d;"><?=$products_in_cart ?></span>
+        </a>
+    </div>
     <div class="container">
         <div class="deliveryDetail">
             <h1>Delivery Details</h1>
@@ -77,8 +91,8 @@
             </form>
         </div>
 
-        <!-- <div class="deliveryCart">
-            <h2>Order Summary</h2>
-        </div> -->
-    </div>
+
+
+</body>
+
 </html>
