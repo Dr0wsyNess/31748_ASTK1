@@ -39,12 +39,11 @@ a {
   color: #94ABC8;
 }
 
+.span {color: #889CB6;
+}
 
 .logo {
-  float: left;
-  color: black;
-  scale: 20%;
-  padding: 0px;
+  padding-top:10px;
 }
 
 /* Add a backgroumd colour to the nav */

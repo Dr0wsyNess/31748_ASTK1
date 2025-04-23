@@ -39,9 +39,17 @@
                         echo "<script>alert ('$message'); window.location.href='cart.php';</script>";
                         exit();
                     }
+                    else{
+                        //if product quantity is in stock and cart quantity is less than stock
+                        $id = $product['product_id'];
+                        $q = $product['in_stock'] - $quantity['quantity'];
+                        $update_query_string = "UPDATE products SET in_stock='$q' WHERE product_id = '$id'";
+                        mysqli_query($connection, $update_query_string);
+                    }
                 }
             }
         }
+        
         unset($_SESSION['cart']);
         $products_in_cart = isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0;
         
@@ -64,7 +72,7 @@
     </div>
     <div class="main">
         <h1>Order Confirmation</h1>
-        <p>Thanks <?= $_POST['fname'] ?> for ordering at Drowsy's Grocery. Order Summary has been send to your email, <?= $_POST['email'] ?> </p>
+        <p>Thanks <b><?= $_POST['fname'] ?></b> for ordering at <b><span class="span">Drowsy's Grocery</span></b>. Order Summary has been send to your email, <b><?= $_POST['email'] ?></b></p>
     </div>
 
 </body>

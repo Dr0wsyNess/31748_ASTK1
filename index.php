@@ -29,7 +29,7 @@
     ?>    
     <!--logo-->
     <div id="top" class="nav">
-        <img src="./images/logo_mono.png" width="70">
+        <img class="logo" src="./images/logo_mono.png" width="70">
     </div>
     <!--nav bar-->
     <div id="top" class="nav">
@@ -40,7 +40,6 @@
             <span class="icon" style="background-color: #495e7d;"><?=$products_in_cart ?></span>
         </a>
     </div>
-
     <!--Catalogue sidenav-->
     <?php include('category.php'); ?>
 
