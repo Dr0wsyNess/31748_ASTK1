@@ -5,7 +5,7 @@
     <meta name="index" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <title>Online Grocery Store</title>
+    <title>Cart | Drowsy Grocery</title>
 </head>
 
 <body>
@@ -39,12 +39,12 @@
     ?>
     <!--logo-->
     <div id="top" class="nav col-12 col-t-12">
-        <img src="./images/logo_mono.png" width="70">
+        <a href="index.php"><img class="logo" src="./images/logo_mono.png" width="70"><a>
     </div>
     <!--nav bar-->
     <div id="top" class="nav">
         <a href="index.php">Home</a>
-        <a href="about.html">About</a>
+        <!-- <a href="about.html">About</a> -->
         <a class="active" href="cart.php">
             <i class="material-icons">shopping_cart</i>
             <span class="icon" style="background-color: #495e7d;"><?= $products_in_cart ?></span>
@@ -67,12 +67,9 @@
     <?php
     } else {
         $cart = $_SESSION['cart'];
-        // echo '<pre>';
-        // var_dump($_SESSION);
-        // echo '</pre>';
         $subTotal = 0;
-        $cart_array = implode(',', array_keys($_SESSION['cart']));
-        $query_string = "select * FROM products WHERE product_id in($cart_array)";
+        $cartArray = implode(',', array_keys($_SESSION['cart']));
+        $query_string = "select * FROM products WHERE product_id in($cartArray)";
         $result = mysqli_query($connection, $query_string);
     ?>
         <div class="main">
@@ -97,7 +94,6 @@
                             <form method="post" action="cart.php">
                                 <input type="hidden" name="removeProduct" value="<?= $product['product_id'] ?>">
                                 <input type="submit" class="removeItem-btn" value="Remove Item">
-                                <!-- <button class="removeItem-btn" type="button">Remove Item</button> -->
                             </form>
                         </td>
                         <?php
@@ -112,7 +108,7 @@
                         ?>
                                 <td style="text-align: center;">
                                     <form method="post" action="cart.php">
-                                        <input type="hidden" name="updateQuantityID" value="<?= $product['product_id'] ?>">
+                                        <input type="hidden" value="<?= $product['product_id'] ?>" name="updateQuantityID">
                                         <input type="number" value="<?= $quantity['quantity'] ?>" name="updateQuantity" class="quantity">
                                     </form>
                                 </td>

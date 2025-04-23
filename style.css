@@ -158,12 +158,7 @@ a {
   display: block;
 }
 
-/* Some media queries for responsiveness *
-@media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  } */
-/* Main content */
+
 
 .categories-header {
   color: #495e7d;
@@ -365,7 +360,7 @@ tr:nth-child(odd) {
 } */
 
 .deliveryDetail{
-  
+  align-items: center;
 }
 
 /* .deliveryCart{
@@ -388,9 +383,6 @@ tr:nth-child(odd) {
 .row{
   display: flex;
   align-items: center; 
-  gap: 15px;           
-}
-
-.rowGroup{
-
+  gap: 15px;   
+  justify-content: center;        
 }

@@ -92,7 +92,6 @@ $result = mysqli_query($connection, $query_string);
                 <?php
                 }
                 ?>
-                <!-- </form> -->
             </div>
     <?php
         }

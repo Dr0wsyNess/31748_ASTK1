@@ -5,8 +5,7 @@
     <meta name="index" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-    <title>Online Grocery Store</title>
+    <title>Delivery Details | Drowsy Grocery</title>
 </head>
 
 <body>
@@ -17,20 +16,21 @@
     ?>
     <!--logo-->
     <div id="top" class="nav">
-        <img src="./images/logo_mono.png" width="70">
+        <a href="index.php"><img src="./images/logo_mono.png" width="70"></a>
     </div>
     <!--nav bar-->
     <div id="top" class="nav">
-        <a class="active" href="index.php">Home</a>
-        <a href="about.html">About</a>
+        <a href="index.php">Home</a>
+        <!-- <a href="about.html">About</a> -->
         <a href="cart.php">
             <i class="material-icons">shopping_cart</i>
-            <span class="icon" style="background-color: #495e7d;"><?= $products_in_cart ?></span>
+            <span class="icon" style="background-color: #495e7d;"><?=$products_in_cart ?></span>
         </a>
+        <p>Delivery Details</p>
     </div>
-    <div class="container">
+    <div class="container" >
         <div class="deliveryDetail">
-            <h1>Delivery Details</h1>
+            <h1 style="text-align: center;">Delivery Details</h1>
             <form method="post" action="confirmed.php">
                 <div class="row">
                     <div class="rowGroup">
@@ -41,28 +41,28 @@
                         <label for="lname" class="formLabel">LAST NAME <span style="color: red;">*</span></label>
                         <input type="text" id="lname" name="lname" class="formField" required>
                     </div>
-                </div>
+                </div> <br>
                 <div class="row">
                     <div class="rowGroup" for="phone">
                         <label for="phone" class="formLabel">MOBILE PHONE <span style="color: red;">*</span></label>
-                        <input type="tel" id="phone" name="phone" minlength="10" maxlength="10" class="formField" required>
+                        <input type="tel" id="phone" name="phone" minlength="10" maxlength="10" pattern="[0-9]{10}" class="formField" required>
                     </div>
                     <div class="rowGroup">
                         <label for="email" class="formLabel">EMAIL ADDRESS <span style="color: red;">*</span></label>
                         <input type="email" id="email" name="email" class="formField" required>
                     </div>
-                </div>
+                </div> <br>
                 <div class="row">
                     <div class="rowGroup">
                         <label for="street" class="formLabel">STREET ADDRESS <span style="color: red;">*</span></label>
                         <input type="text" id="street" name="street" class="formField" required>
                     </div>
-                </div>
+                </div> <br>
                 <div class="row">
                     <div class="rowGroup">
                         <label for="suburb" class="formLabel">CITY/ SUBURB <span style="color: red;">*</span></label>
                         <input type="text" id="suburb" name="suburb" class="formField" required>
-                    </div>
+                    </div> 
                     <div class="rowGroup">
                         <label for="state" class="formLabel">STATE <span style="color: red;">*</span></label>
                         <select id="state" name="state" class="formField" required>
@@ -77,18 +77,18 @@
                             <option value="others">Others</option>
                         </select>
                     </div>
+                </div> <br>
+                <div class="row">
+                    <div class="rowGroup">
+                        <label for="postcode" class="formLabel">POSTCODE <span style="color: red;">*</span></label>
+                        <input type="number" id="postcode" name="postcode" min="0200" max="9999" class="formField" required>
+                    </div>
                 </div>
-                <div class="rowGroup">
-                    <label for="postcode" class="formLabel">POSTCODE <span style="color: red;">*</span></label>
-                    <input type="number" id="postcode" name="postcode" min="0200" max="9999" class="formField" required>
-                </div>
-                <div>
+                <div style="text-align: center;">
                     <br><input type="submit" name="submitForm" class="checkOut-btn" value="Submit">
                 </div>
             </form>
         </div>
-
-
 
 </body>
 

@@ -6,8 +6,7 @@
     <meta name="index" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-    <title>Online Grocery Store</title>
+    <title>Order Confirmed | Drowsy Grocery</title>
 </head>
 
 <body>
@@ -17,9 +16,6 @@
 
     if (isset($_POST['submitForm'])) {
         $cart = $_SESSION['cart'];
-        // echo '<pre>';
-        // var_dump($_SESSION);
-        // echo '</pre>';
         $cart_array = implode(',', array_keys($cart));
         $query_string = "select * FROM products WHERE product_id in($cart_array)";
         $result = mysqli_query($connection, $query_string);
@@ -59,20 +55,25 @@
     ?>    
     <!--logo-->
     <div id="top" class="nav">
-        <img src="./images/logo_mono.png" width="70">
+        <a href="index.php"><img class="logo" src="./images/logo_mono.png" width="70"><a>
     </div>
     <!--nav bar-->
     <div id="top" class="nav">
         <a class="active" href="index.php">Home</a>
-        <a href="about.html">About</a>
+        <!-- <a href="about.html">About</a> -->
         <a href="cart.php">
             <i class="material-icons">shopping_cart</i>
             <span class="icon" style="background-color: #495e7d;"><?=$products_in_cart ?></span>
         </a>
+        <p>Order Confirmation</p>
     </div>
-    <div class="main">
+    <div class="main" style="text-align: center;">
         <h1>Order Confirmation</h1>
-        <p>Thanks <b><?= $_POST['fname'] ?></b> for ordering at <b><span class="span">Drowsy's Grocery</span></b>. Order Summary has been send to your email, <b><?= $_POST['email'] ?></b></p>
+        <p>Thanks <b><?= $_POST['fname'] ?></b> for ordering at <b><span class="span">Drowsy Grocery</span></b>. Order Summary has been send to your email, <b><?= $_POST['email'] ?></b></p>
+        <br> <br>
+        <a href="index.php">
+            <button class="checkOut-btn">Go back to Shopping</button>
+        </a> 
     </div>
 
 </body>
